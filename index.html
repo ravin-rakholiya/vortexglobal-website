@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vortex Global | Global Vision • Global Growth | Spices, Pulses & Oil Seeds Export</title>
+  <meta name="description" content="Vortex Global - Import, Export & Excellence. Leading international exporter of premium Indian Spices, Pulses, and Oil Seeds." />
+  <meta name="keywords" content="Vortex Global, cumin seeds export, coriander seeds exporter, fennel seeds, groundnuts export, sesame seeds white black, chickpeas garbanzo export" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Fixed Fullscreen Scrollable Background Canvas & Overlay (240 Frames) -->
+  <canvas id="scroll-canvas"></canvas>
+  <div class="canvas-overlay"></div>
+
+  <!-- Custom Dual Cursor -->
+  <div class="custom-cursor__cursor"></div>
+  <div class="custom-cursor__cursor-dot"></div>
+
+  <!-- RIGHT-SIDE FLOATING CONTACT POP-UP DOCK (WhatsApp, Email Us, LinkedIn, Instagram) -->
+  <div class="floating-social-dock">
+    <!-- WhatsApp -->
+    <div class="social-dock-item">
+      <a href="https://wa.me/919023850669?text=Hello%20Vortex%20Global,%20I%20have%20an%20export%20enquiry" target="_blank" class="social-dock-btn whatsapp" aria-label="WhatsApp">
+        <i data-lucide="message-square"></i>
+      </a>
+      <span class="social-dock-tooltip">WhatsApp Us (+91 9023850669)</span>
+    </div>
+
+    <!-- Email Us (Direct Mail Composer to vortexglobal@vortexglobal.co.in) -->
+    <div class="social-dock-item">
+      <button onclick="openEmailComposer(event)" class="social-dock-btn gmail" aria-label="Email Us">
+        <i data-lucide="mail"></i>
+      </button>
+      <span class="social-dock-tooltip">Email Us (vortexglobal@vortexglobal.co.in)</span>
+    </div>
+
+    <!-- LinkedIn -->
+    <div class="social-dock-item">
+      <a href="https://linkedin.com/company/vortexglobal-export" target="_blank" class="social-dock-btn linkedin" aria-label="LinkedIn">
+        <i data-lucide="linkedin"></i>
+      </a>
+      <span class="social-dock-tooltip">LinkedIn Profile</span>
+    </div>
+
+    <!-- Instagram (Direct link to https://www.instagram.com/vortex_global_/?hl=en) -->
+    <div class="social-dock-item">
+      <a href="https://www.instagram.com/vortex_global_/?hl=en" target="_blank" class="social-dock-btn instagram" aria-label="Instagram">
+        <i data-lucide="instagram"></i>
+      </a>
+      <span class="social-dock-tooltip">Instagram (@vortex_global_)</span>
+    </div>
+  </div>
+
+  <!-- Navigation Bar (Order: Home -> Products -> Certifications -> FAQs -> About Us -> Contact) -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo">
+        <img src="images/vortex_global_logo.jpg" alt="Vortex Global Logo" class="brand-logo-img" />
+        <span>VORTEX <span class="text-navy">GLOBAL</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+        <li><a href="#faq" class="nav-link">FAQs</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#contact" class="nav-link">Contact & Enquiry</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+          Enquiry Now <i data-lucide="send"></i>
+        </a>
+
+        <button class="mobile-toggle" aria-label="Toggle menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. HERO SECTION (#home) -->
+  <section class="hero" id="home">
+    <div class="particles-bg"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="container hero-grid">
+      <div class="reveal reveal-zoom" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="hero-tag">
+          <i data-lucide="compass"></i>
+          <span>GLOBAL VISION • GLOBAL GROWTH</span>
+        </div>
+        <h1 class="hero-title">
+          Vortex Global - Premium Spices, Pulses & Oil Seeds Exported Worldwide
+        </h1>
+        <p class="hero-subtitle">
+          Import • Export • Excellence. Direct-from-farm premium quality cumin seeds, coriander, fennel, sesame seeds, groundnuts, and chickpeas compliant with international standards.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">
+            Enquiry Now <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#products" class="btn btn-secondary">
+            Explore Products <i data-lucide="package"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP BAR SECTION -->
+  <section class="usp-bar" style="background: rgba(248, 250, 252, 0.45); backdrop-filter: blur(8px);">
+    <div class="container">
+      <div class="usp-grid">
+        <div class="usp-card reveal reveal-zoom">
+          <div class="usp-icon"><i data-lucide="zap"></i></div>
+          <div>
+            <div class="usp-title">Rapid Dispatch</div>
+            <div class="usp-desc">Speed depends on product shelf-life & port availability</div>
+          </div>
+        </div>
+        <div class="usp-card reveal reveal-zoom" style="animation-delay: 0.1s;">
+          <div class="usp-icon"><i data-lucide="shield-check"></i></div>
+          <div>
+            <div class="usp-title">100% Compliant</div>
+            <div class="usp-desc">FSSAI, APEDA & Spice Board registered</div>
+          </div>
+        </div>
+        <div class="usp-card reveal reveal-zoom" style="animation-delay: 0.2s;">
+          <div class="usp-icon"><i data-lucide="tag"></i></div>
+          <div>
+            <div class="usp-title">Farm-Direct Pricing</div>
+            <div class="usp-desc">Highly competitive export rates directly from source</div>
+          </div>
+        </div>
+        <div class="usp-card reveal reveal-zoom" style="animation-delay: 0.3s;">
+          <div class="usp-icon"><i data-lucide="leaf"></i></div>
+          <div>
+            <div class="usp-title">Sustainable Packaging</div>
+            <div class="usp-desc">Eco-friendly moisture barrier export packaging</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PRODUCTS SECTION (#products) -->
+  <section class="section-padding" id="products" style="background: rgba(248, 250, 252, 0.50); backdrop-filter: blur(10px);">
+    <div class="particles-bg"></div>
+    <div class="container">
+      <div class="section-header reveal reveal-zoom">
+        <div class="section-badge">WHITE MARBLE B2B CATALOG</div>
+        <h2 class="section-title">Our Premium Export Products</h2>
+        <p class="section-description">
+          Ultra-realistic 4K product photography on luxury white marble studio backgrounds for international B2B buyers.
+        </p>
+      </div>
+
+      <div class="catalog-controls reveal">
+        <div class="category-tabs">
+          <button class="tab-btn active" data-category="all">All Products</button>
+          <button class="tab-btn" data-category="spices">Spices</button>
+          <button class="tab-btn" data-category="pulses">Pulses</button>
+          <button class="tab-btn" data-category="oilseeds">Oil Seeds</button>
+        </div>
+
+        <div style="display:flex; gap:0.75rem; align-items:center;">
+          <div class="catalog-search">
+            <i data-lucide="search"></i>
+            <input type="text" id="searchInput" placeholder="Search product name or HSN code..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Product Grid -->
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- 3. CERTIFICATIONS SECTION (#certifications) -->
+  <section class="section-padding" id="certifications" style="background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(10px);">
+    <div class="particles-bg"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">QUALITY GUARANTEE</div>
+        <h2 class="section-title">Official Registrations & Certifications</h2>
+        <p class="section-description">
+          Vortex Global operates in 100% compliance with Government of India export regulations and international food safety standards.
+        </p>
+      </div>
+
+      <div class="cert-grid">
+        <!-- 1. IEC -->
+        <div class="cert-card reveal reveal-zoom">
+          <div class="cert-badge-icon"><i data-lucide="globe"></i></div>
+          <h3 class="cert-name">IEC Code</h3>
+          <div class="cert-issuer">DGFT, Govt. of India</div>
+          <p class="cert-desc">Official Import Export Code license granted for authentic international commercial trade.</p>
+        </div>
+
+        <!-- 2. GST -->
+        <div class="cert-card reveal reveal-zoom" style="animation-delay: 0.1s;">
+          <div class="cert-badge-icon"><i data-lucide="file-check"></i></div>
+          <h3 class="cert-name">GST Registration</h3>
+          <div class="cert-issuer">Central Tax Authorities</div>
+          <p class="cert-desc">Fully registered GST entity ensuring complete tax & customs export documentation compliance.</p>
+        </div>
+
+        <!-- 3. APEDA -->
+        <div class="cert-card reveal reveal-zoom" style="animation-delay: 0.2s;">
+          <div class="cert-badge-icon"><i data-lucide="sprout"></i></div>
+          <h3 class="cert-name">APEDA Registration</h3>
+          <div class="cert-issuer">Agro Export Authority</div>
+          <p class="cert-desc">Registered exporter with Agricultural & Processed Food Products Export Development Authority.</p>
+        </div>
+
+        <!-- 4. Spices Board -->
+        <div class="cert-card reveal reveal-zoom" style="animation-delay: 0.3s;">
+          <div class="cert-badge-icon"><i data-lucide="award"></i></div>
+          <h3 class="cert-name">Spices Board India</h3>
+          <div class="cert-issuer">Ministry of Commerce & Industry</div>
+          <p class="cert-desc">Certified spices exporter holding CRES registration for premium Indian spice shipments.</p>
+        </div>
+
+        <!-- 5. FSSAI -->
+        <div class="cert-card reveal reveal-zoom" style="animation-delay: 0.4s;">
+          <div class="cert-badge-icon"><i data-lucide="shield-check"></i></div>
+          <h3 class="cert-name">FSSAI License</h3>
+          <div class="cert-issuer">Food Safety Standards Authority</div>
+          <p class="cert-desc">100% compliant food safety and processing license for export agro-commodities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FAQ ACCORDION SECTION (#faq) -->
+  <section class="section-padding" id="faq" style="background: rgba(248, 250, 252, 0.50); backdrop-filter: blur(10px);">
+    <div class="particles-bg"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">HELP CENTER</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-description">
+          Answers to common questions regarding export orders, payment terms, quality inspections, and lead times.
+        </p>
+      </div>
+
+      <div class="faq-container reveal">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>What are your standard payment terms for export orders?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>We support Irrevocable Letter of Credit (L/C at Sight from premier banks) and Telegraphic Transfer (T/T with 30% advance deposit and 70% balance against scanned Bill of Lading copy).</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I request product samples before placing a container order?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We provide free product samples for testing and lab evaluation. The buyer pays express courier charges (DHL/FedEx), which are reimbursed upon contract confirmation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is the typical dispatch lead time for a 20ft / 40ft container?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Depending on the product and custom packaging, dispatch from our warehouse to Mundra / Kandla port takes between 5 to 10 working days upon LC / payment receipt.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you offer private labeling and custom packaging?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. We offer custom branding, buyer bag printing, vacuum packs, poly bags, carton packaging, and jute bags ranging from 1kg consumer packs to 50kg bulk bags.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ABOUT US SECTION (#about - Placed right before Contact & Enquiry) -->
+  <section class="section-padding" id="about" style="background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(10px);">
+    <div class="particles-bg"></div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-box reveal reveal-left">
+          <img src="images/spices.jpg" alt="Vortex Global Quality Control Spices" />
+          <div class="about-badge">
+            <div class="about-badge-val">APEDA & SPICE BOARD</div>
+            <div class="about-badge-lbl">Govt. Registered Exporter</div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-right">
+          <div class="section-badge">ABOUT VORTEX GLOBAL</div>
+          <h2 class="section-title">Trusted Global Export Partner For Agro Commodities</h2>
+          <p style="color: var(--text-muted); margin-bottom: 1.25rem;">
+            Vortex Global (Import • Export • Excellence) is a premier international trading and export firm specializing in high-grade agricultural commodities, spices, oil seeds, and pulses. Driven by our ethos of <strong>Global Vision & Global Growth</strong>, we ensure uncompromised quality, competitive pricing, and swift global delivery.
+          </p>
+
+          <ul class="about-list">
+            <li class="about-item">
+              <i data-lucide="check-circle-2"></i>
+              <div>
+                <strong style="color:#0F172A;">Advanced Sortex & Machine Cleaning</strong>
+                <p style="font-size:0.88rem; color:var(--text-muted);">99.5% purity guarantee with minimal moisture content across all seed & spice lots.</p>
+              </div>
+            </li>
+            <li class="about-item">
+              <i data-lucide="check-circle-2"></i>
+              <div>
+                <strong style="color:#0F172A;">Custom Export Packaging</strong>
+                <p style="font-size:0.88rem; color:var(--text-muted);">Supplying in 25kg / 50kg PP, Jute, and Vacuum-sealed barrier bags.</p>
+              </div>
+            </li>
+            <li class="about-item">
+              <i data-lucide="check-circle-2"></i>
+              <div>
+                <strong style="color:#0F172A;">Comprehensive Lab Testing & SGS Certification</strong>
+                <p style="font-size:0.88rem; color:var(--text-muted);">Every shipment comes with Certificate of Analysis, Phytosanitary, and Quality Reports.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CONTACT & ENQUIRY SECTION (#contact) -->
+  <section class="section-padding" id="contact" style="background: rgba(248, 250, 252, 0.50); backdrop-filter: blur(10px);">
+    <div class="particles-bg"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">ENQUIRY NOW</div>
+        <h2 class="section-title">Send Export Enquiry Now</h2>
+        <p class="section-description">
+          Fill out the form below to receive factory-direct CIF / FOB prices within 2 hours.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card reveal reveal-left">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;" class="text-navy">Vortex Global HQ</h3>
+
+          <div class="contact-method">
+            <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+            <div>
+              <div class="contact-lbl">Head Office Address</div>
+              <div class="contact-val">716-MBH, Sarthana Jakatnaka, Surat - 395006, Gujarat, India</div>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon"><i data-lucide="mail"></i></div>
+            <div>
+              <div class="contact-lbl">Export Inquiry Email</div>
+              <button onclick="openEmailComposer(event)" class="contact-val" style="background:none; border:none; padding:0; cursor:pointer; color:var(--navy-bright); font-weight:600; text-decoration:underline; font-size:1rem;">
+                vortexglobal@vortexglobal.co.in
+              </button>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon"><i data-lucide="phone"></i></div>
+            <div>
+              <div class="contact-lbl">Direct Phone / WhatsApp</div>
+              <a href="https://wa.me/919023850669?text=Hello%20Vortex%20Global" target="_blank" class="contact-val" style="color:var(--navy-bright);">
+                +91 9023850669
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Streamlined Enquiry Form -->
+        <div class="calc-card reveal reveal-right">
+          <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem;">Send Export Enquiry Now</h3>
+
+          <form id="rfqForm">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">Your Name / Company</label>
+                <input type="text" class="form-input" id="rfqName" required placeholder="John Doe (Global Trade Co.)" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Business Email</label>
+                <input type="email" class="form-input" id="rfqEmail" required placeholder="buyer@company.com" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">WhatsApp / Mobile No.</label>
+                <input type="text" class="form-input" id="rfqPhone" required placeholder="+1 234 567 890" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Select Product</label>
+                <select class="form-select" id="rfqProduct">
+                  <option value="Cumin Seeds">1. Cumin Seeds</option>
+                  <option value="Coriander Seeds">2. Coriander Seeds</option>
+                  <option value="Green Fennel Seeds">3. Green Fennel Seeds</option>
+                  <option value="Groundnuts">4. Groundnuts / Peanuts</option>
+                  <option value="Black Sesame Seeds">5. Black Sesame Seeds</option>
+                  <option value="White Sesame Seeds">6. White Sesame Seeds (Hulled)</option>
+                  <option value="Chickpeas">7. Kabuli Chickpeas (Garbanzo)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Additional Specifications / Port of Discharge</label>
+              <textarea class="form-input" id="rfqMsg" rows="3" placeholder="Specify purity requirement (e.g. 99.5%), packing size, or target port..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Send Enquiry Now <i data-lucide="send"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="productModal">
+    <div class="nk-modal-container" id="modalContainer"></div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo" style="margin-bottom:0.75rem;">
+            <img src="images/vortex_global_logo.jpg" alt="Vortex Global Logo" class="brand-logo-img" />
+            <span style="color:#FFF;">VORTEX <span style="color:#94A3B8;">GLOBAL</span></span>
+          </a>
+          <p style="font-size:0.82rem; color:#CBD5E1; font-weight:600; margin-top:0.5rem; letter-spacing:0.5px;">
+            GLOBAL VISION • GLOBAL GROWTH | IMPORT • EXPORT • EXCELLENCE
+          </p>
+          <p>
+            Premier Exporter of Spices, Pulses & Oil Seeds. Delivering top-tier quality produce worldwide with guaranteed international standards.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Product Catalog</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact & Enquiry</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Key Products</h4>
+          <ul class="footer-links">
+            <li><a href="#products">Cumin Seeds</a></li>
+            <li><a href="#products">Coriander Seeds</a></li>
+            <li><a href="#products">Green Fennel Seeds</a></li>
+            <li><a href="#products">Sesame & Groundnuts</a></li>
+            <li><a href="#products">Kabuli Chickpeas</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Direct Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="openEmailComposer(event)">vortexglobal@vortexglobal.co.in</a></li>
+            <li><a href="https://wa.me/919023850669" target="_blank">WhatsApp: +91 9023850669</a></li>
+            <li><a href="https://linkedin.com/company/vortexglobal-export" target="_blank">LinkedIn Profile</a></li>
+            <li><a href="https://www.instagram.com/vortex_global_/?hl=en" target="_blank">Instagram (@vortex_global_)</a></li>
+            <li><a href="#contact">716-MBH, Sarthana Jakatnaka, Surat - 395006</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Vortex Global. All Rights Reserved.</div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Export</a>
+          <a href="#">Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
