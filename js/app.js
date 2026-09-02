@@ -1,6 +1,6 @@
 /* Vortex Global - Application Logic & Product Catalog Engine */
 
-// 7 Export Products Catalog Data (Dehydrated Produce & Yellow Split Moong removed as requested)
+// 7 Export Products Catalog Data
 const productsData = [
   {
     id: "cumin-seeds",
@@ -12,7 +12,7 @@ const productsData = [
     img: "images/prod_cumin_seeds.jpg",
     desc: "Hand-harvested from Gujarat's famous spice belts, our premium Cumin Seeds offer an intense earthy aroma, rich essential oil content, and unmatched warmth. Sorted using advanced optical technology to ensure zero impurities for global spice blenders and culinary mastercraft.",
     singaporeSpecs: {
-      purity: "99% / 99.5% Machine Cleaned",
+      purity: "99% / 99.5% (Machine Cleaned / Sortex Cleaned)",
       moisture: "Max 8.0% - 9.0%",
       admixture: "Max 0.5% - 1.0%",
       volatileOil: "Min 1.5% - 2.0%",
@@ -21,7 +21,7 @@ const productsData = [
       marketSuitability: "Asia, Southeast Asia & Middle East Markets"
     },
     europeSpecs: {
-      purity: "99.5% / 99.9% Sortex Cleaned",
+      purity: "99.5% / 99.9% (Machine Cleaned / Sortex Cleaned)",
       moisture: "Max 7.0% - 8.0%",
       admixture: "Max 0.1% - 0.5%",
       volatileOil: "Min 2.5% - 3.0%",
@@ -79,16 +79,6 @@ const productsData = [
     origin: "Gujarat, India",
     img: "images/prod_white_sesame.jpg",
     desc: "Mechanically hulled pearl-white Sesame Seeds with a uniform 99.95% purity rating. Celebrated for their delicate nuttiness and high oil yield, preferred by leading global Tahini producers and industrial bakeries."
-  },
-  {
-    id: "chickpeas",
-    name: "Kabuli Chickpeas (Garbanzo Beans)",
-    category: "pulses",
-    subCategory: "Pulses",
-    hsCode: "071320",
-    origin: "Madhya Pradesh & Gujarat, India",
-    img: "images/prod_chickpeas.jpg",
-    desc: "Large, uniform count Kabuli Chickpeas featuring a creamy texture, thin skin, and rich nutty taste. Harvested in Madhya Pradesh and processed under strict hygienic standards for hummus production, canning, and bulk retail."
   }
 ];
 
@@ -102,22 +92,22 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProducts('all');
   initCatalogTabs();
   initCatalogSearch();
-  initRFQForm();
   initFAQAccordion();
   initScrollReveals();
   initParallaxEffects();
   initParticles();
   initScrollCanvasAnimation();
+  init3DVgBackground();
 });
 
 /* Direct Email Composer Handler (Opens Gmail composer directly to vortexglobal@vortexglobal.co.in) */
-window.openEmailComposer = function(e, subject = 'Export Enquiry - Vortex Global', body = '') {
+window.openEmailComposer = function(e, subject = 'Export Contact - Vortex Global', body = '') {
   if (e && e.preventDefault) e.preventDefault();
   
   showToast("Opening Email Composer for vortexglobal@vortexglobal.co.in...");
 
   const recipient = 'vortexglobal@vortexglobal.co.in';
-  const defaultBody = body || `Dear Vortex Global Team,\n\nI am interested in sourcing agricultural export commodities from your company. Please send me your price quotation.\n\nThank you!`;
+  const defaultBody = body || `Dear Vortex Global Team,\n\nI am interested in connecting with your company regarding agricultural export commodities.\n\nThank you!`;
   
   // Gmail Web Composer URL
   const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(defaultBody)}`;
@@ -126,7 +116,169 @@ window.openEmailComposer = function(e, subject = 'Export Enquiry - Vortex Global
   window.open(gmailUrl, '_blank');
 };
 
-/* 6. High-Performance Scroll-Driven Background Canvas Engine */
+/* 7. 3D Animated VG Emblem Background Engine (3D Wireframe Globe + Swirling Vortex Arcs + Particles) */
+function init3DVgBackground() {
+  const canvas = document.getElementById('vg3dCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  // 3D Parameters
+  let globesRadius = Math.min(width, height) * 0.28;
+  let rotationX = 0.25;
+  let targetRotationY = 0;
+  let scrollOffset = 0;
+
+  window.addEventListener('scroll', () => {
+    scrollOffset = window.scrollY * 0.0012;
+  });
+
+  let mouseX = 0, mouseY = 0;
+  window.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / width - 0.5) * 0.3;
+    mouseY = (e.clientY / height - 0.5) * 0.3;
+  });
+
+  // Generate 3D Globe Latitude & Longitude Network Points
+  const numLatitudes = 14;
+  const numLongitudes = 20;
+  const globePoints = [];
+
+  for (let i = 0; i <= numLatitudes; i++) {
+    const lat = (Math.PI / numLatitudes) * i - Math.PI / 2;
+    for (let j = 0; j < numLongitudes; j++) {
+      const lon = (Math.PI * 2 / numLongitudes) * j;
+      const x = Math.cos(lat) * Math.cos(lon);
+      const y = Math.sin(lat);
+      const z = Math.cos(lat) * Math.sin(lon);
+      globePoints.push({ x, y, z });
+    }
+  }
+
+  // Generate 3D Swirling Vortex Particles (Blue & Silver)
+  const numSwirlParticles = 140;
+  const swirlParticles = [];
+  for (let i = 0; i < numSwirlParticles; i++) {
+    swirlParticles.push({
+      angle: Math.random() * Math.PI * 2,
+      radiusOffset: (Math.random() - 0.5) * 0.5,
+      speed: 0.006 + Math.random() * 0.012,
+      size: Math.random() * 2.5 + 1.2,
+      opacity: Math.random() * 0.7 + 0.3,
+      color: Math.random() > 0.45 ? 'rgba(37, 99, 235, 0.85)' : 'rgba(148, 163, 184, 0.85)'
+    });
+  }
+
+  // 3D Perspective Projection Matrix Helper
+  function project3D(x, y, z, rotX, rotY) {
+    // Y-axis rotation
+    const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+    const x1 = x * cosY - z * sinY;
+    const z1 = z * cosY + x * sinY;
+
+    // X-axis rotation
+    const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+    const y2 = y * cosX - z1 * sinX;
+    const z2 = z1 * cosX + y * sinX;
+
+    // Perspective projection formula
+    const fov = 850;
+    const scale = fov / (fov + z2 * globesRadius * 0.75);
+    const projX = width / 2 + x1 * globesRadius * scale;
+    const projY = height / 2 + y2 * globesRadius * scale;
+
+    return { x: projX, y: projY, z: z2, scale };
+  }
+
+  function render3D() {
+    ctx.clearRect(0, 0, width, height);
+
+    targetRotationY += 0.0035;
+    const currentRotY = targetRotationY + scrollOffset + mouseX;
+    const currentRotX = rotationX + mouseY;
+
+    // 1. Draw 3D Ambient Swirl Vortex Arcs (Inspired by Blue Swirl in VG Logo)
+    for (let r = 1; r <= 3; r++) {
+      ctx.beginPath();
+      const ringRadius = globesRadius * (1.15 + r * 0.14);
+      ctx.strokeStyle = r === 1 ? 'rgba(37, 99, 235, 0.28)' : 'rgba(148, 163, 184, 0.18)';
+      ctx.lineWidth = r === 1 ? 2.5 : 1.5;
+      
+      for (let a = 0; a <= Math.PI * 2; a += 0.08) {
+        const px = Math.cos(a) * (ringRadius / globesRadius);
+        const py = Math.sin(a) * (ringRadius / globesRadius) * 0.32; // Tilted ellipse
+        const pz = Math.sin(a) * 0.55;
+
+        const proj = project3D(px, py, pz, currentRotX, currentRotY);
+        if (a === 0) ctx.moveTo(proj.x, proj.y);
+        else ctx.lineTo(proj.x, proj.y);
+      }
+      ctx.stroke();
+    }
+
+    // 2. Draw 3D Globe Wireframe Grid Network
+    for (let i = 0; i < globePoints.length; i++) {
+      const pt = globePoints[i];
+      const proj = project3D(pt.x, pt.y, pt.z, currentRotX, currentRotY);
+
+      // Only draw points on front hemisphere for clean 3D depth
+      if (proj.z < 0.25) {
+        const alpha = Math.max(0.08, (0.25 - proj.z) * 0.7);
+        ctx.fillStyle = `rgba(10, 37, 64, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(proj.x, proj.y, 2.2 * proj.scale, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Connect neighboring longitude points with grid lines
+        if (i % numLongitudes !== numLongitudes - 1) {
+          const nextPt = globePoints[i + 1];
+          const nextProj = project3D(nextPt.x, nextPt.y, nextPt.z, currentRotX, currentRotY);
+          if (nextProj.z < 0.25) {
+            ctx.strokeStyle = `rgba(30, 58, 138, ${alpha * 0.35})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(proj.x, proj.y);
+            ctx.lineTo(nextProj.x, nextProj.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    // 3. Draw Swirling Vortex Particles Flowing in 3D Space
+    swirlParticles.forEach(p => {
+      p.angle += p.speed;
+      const rad = 1.25 + p.radiusOffset;
+      const px = Math.cos(p.angle) * rad;
+      const py = Math.sin(p.angle) * rad * 0.35;
+      const pz = Math.sin(p.angle) * 0.6;
+
+      const proj = project3D(px, py, pz, currentRotX, currentRotY);
+
+      if (proj.z < 0.45) {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0.1, p.opacity * (0.45 - proj.z));
+        ctx.beginPath();
+        ctx.arc(proj.x, proj.y, p.size * proj.scale, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+    });
+
+    requestAnimationFrame(render3D);
+  }
+
+  render3D();
+}
+
+/* 6. High-Performance Background Canvas Engine */
 function initScrollCanvasAnimation() {
   const canvas = document.getElementById('scroll-canvas');
   if (!canvas) return;
@@ -244,7 +396,7 @@ function initScrollReveals() {
 
   reveals.forEach(el => observer.observe(el));
 
-  document.querySelectorAll('.section-header, .product-card, .usp-card, .cert-card, .contact-info-card, .calc-card').forEach((el, idx) => {
+  document.querySelectorAll('.section-header, .product-card, .usp-card, .cert-card, .contact-info-card').forEach((el, idx) => {
     el.classList.add('reveal');
     if (idx % 2 === 0) el.classList.add('reveal-left');
     else el.classList.add('reveal-right');
@@ -276,13 +428,18 @@ function animateCounter(counterEl) {
   }, stepTime);
 }
 
-/* 4. Parallax Background Effects */
+/* 4. Parallax Abstract Theme Background Effects */
 function initParallaxEffects() {
-  const videoBg = document.querySelector('.hero-video-bg video');
+  const themeGlobe = document.getElementById('themeGlobe');
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    if (videoBg && scrollY < window.innerHeight) {
-      videoBg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
+    
+    if (themeGlobe) {
+      const scale = 1 + progress * 0.15;
+      const rotate = progress * 12;
+      themeGlobe.style.transform = `translate(-50%, -50%) scale(${scale}) rotate(${rotate}deg)`;
     }
   });
 }
@@ -377,7 +534,7 @@ function renderProducts(category, searchQuery = '') {
         <div class="product-meta">
           <span class="product-hs">HS Code: <span>${prod.hsCode}</span></span>
           <button class="btn btn-secondary" style="padding: 0.45rem 1rem; font-size: 0.82rem;" onclick="openProductModal('${prod.id}')">
-            Enquiry Now <i class="lucide-chevron-right"></i>
+            View Specs <i class="lucide-chevron-right"></i>
           </button>
         </div>
       </div>
@@ -469,13 +626,12 @@ function renderNKAgroModalContent() {
             </div>
             <table class="nk-spec-table">
               <tbody>
-                <tr><td><strong>Grade Type</strong></td><td>Singapore Quality (Standard Commercial)</td></tr>
+                <tr><td><strong>Grade Type</strong></td><td>Singapore Quality (Standard Commercial Grade)</td></tr>
                 <tr><td><strong>Purity Level</strong></td><td>${prod.singaporeSpecs.purity}</td></tr>
                 <tr><td><strong>Moisture Content</strong></td><td>${prod.singaporeSpecs.moisture}</td></tr>
                 <tr><td><strong>Admixture</strong></td><td>${prod.singaporeSpecs.admixture}</td></tr>
                 <tr><td><strong>Volatile Oil</strong></td><td>${prod.singaporeSpecs.volatileOil}</td></tr>
                 <tr><td><strong>Foreign Matter</strong></td><td>${prod.singaporeSpecs.foreignMatter}</td></tr>
-                <tr><td><strong>Target Markets</strong></td><td>${prod.singaporeSpecs.marketSuitability}</td></tr>
               </tbody>
             </table>
           </div>
@@ -493,7 +649,6 @@ function renderNKAgroModalContent() {
                 <tr><td><strong>Admixture</strong></td><td>${prod.europeSpecs.admixture}</td></tr>
                 <tr><td><strong>Volatile Oil</strong></td><td>${prod.europeSpecs.volatileOil}</td></tr>
                 <tr><td><strong>Foreign Matter</strong></td><td>${prod.europeSpecs.foreignMatter}</td></tr>
-                <tr><td><strong>EU Compliance</strong></td><td>${prod.europeSpecs.pesticideCompliance}</td></tr>
               </tbody>
             </table>
           </div>
@@ -531,13 +686,7 @@ function renderNKAgroModalContent() {
           </div>
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem;">${prod.desc}</p>
           <div style="display: flex; gap: 0.75rem;">
-            <button class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;" onclick="closeProductModal(); scrollToRFQ('${prod.name}');">
-              Enquiry Now <i class="lucide-send"></i>
-            </button>
-            <button onclick="openEmailComposer(event, 'Export Enquiry for ${encodeURIComponent(prod.name)}', 'Dear Vortex Global Team,\n\nI am interested in sourcing ${encodeURIComponent(prod.name)}. Please send me your latest quotation.')" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
-              Email Us <i class="lucide-mail"></i>
-            </button>
-            <a href="https://wa.me/919023850669?text=Inquiry%20for%20${encodeURIComponent(prod.name)}" target="_blank" class="btn btn-emerald" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+            <a href="https://wa.me/919512000609?text=Inquiry%20for%20${encodeURIComponent(prod.name)}" target="_blank" class="btn btn-emerald" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">
               WhatsApp <i class="lucide-message-square"></i>
             </a>
           </div>
@@ -547,13 +696,13 @@ function renderNKAgroModalContent() {
       <!-- Product Description & HSN Code Section -->
       ${specsContentHtml}
 
-      <!-- Bottom Navigation Controls with Back to Products Button -->
-      <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between;">
-        <button class="nk-modal-back-btn" onclick="closeProductModal()">
-          <i class="lucide-arrow-left"></i> Back to Products
-        </button>
-        <button class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;" onclick="closeProductModal(); scrollToRFQ('${prod.name}');">
-          Send Export Enquiry <i class="lucide-send"></i>
+      <!-- Bottom Navigation Controls with Prominent Bold Back Button -->
+      <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: flex-start;">
+        <button class="nk-modal-back-btn" onclick="closeProductModal()" title="Back to Products Catalog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
         </button>
       </div>
     </div>
@@ -561,9 +710,12 @@ function renderNKAgroModalContent() {
 
   container.innerHTML = `
     <div class="nk-modal-header">
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <button class="nk-modal-back-btn" onclick="closeProductModal()">
-          <i class="lucide-arrow-left"></i> Back to Products
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <button class="nk-modal-back-btn" onclick="closeProductModal()" title="Back to Products Catalog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
         </button>
         <div class="nk-breadcrumbs">
           <span>Vortex Global</span>
@@ -573,7 +725,6 @@ function renderNKAgroModalContent() {
           <span class="active">${prod.name}</span>
         </div>
       </div>
-      <button class="nk-modal-close" onclick="closeProductModal()" title="Close Product View"><i class="lucide-x"></i></button>
     </div>
 
     <div class="nk-layout-grid">
@@ -583,45 +734,6 @@ function renderNKAgroModalContent() {
   `;
 
   if (window.lucide) window.lucide.createIcons();
-}
-
-window.scrollToRFQ = function(productName) {
-  const rfqSec = document.getElementById('contact');
-  if (rfqSec) {
-    rfqSec.scrollIntoView({ behavior: 'smooth' });
-    const prodSelect = document.getElementById('rfqProduct');
-    if (prodSelect) {
-      for (let option of prodSelect.options) {
-        if (option.text.includes(productName) || productName.includes(option.value)) {
-          option.selected = true;
-          break;
-        }
-      }
-    }
-  }
-};
-
-// Streamlined Enquiry Form Handler
-function initRFQForm() {
-  const form = document.getElementById('rfqForm');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('rfqName').value;
-      const product = document.getElementById('rfqProduct').value;
-
-      showToast(`Enquiry Submitted for ${product}! Contacting sales team...`);
-      
-      const waMsg = encodeURIComponent(`Hello Vortex Global, I would like to send an export enquiry.\nName/Company: ${name}\nProduct: ${product}`);
-      const waUrl = `https://wa.me/919023850669?text=${waMsg}`;
-      
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 1000);
-      
-      form.reset();
-    });
-  }
 }
 
 // FAQ Accordion

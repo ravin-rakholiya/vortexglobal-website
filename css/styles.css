@@ -55,7 +55,114 @@
 }
 
 /* Reset & Base */
-/* Scrollable Background Canvas Animation Engine */
+/* Abstract VG Logo-Inspired Luxury Theme Engine (No literal logo image) */
+.theme-bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -4;
+  background: 
+    radial-gradient(circle at 10% 15%, rgba(30, 58, 138, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(10, 37, 64, 0.10) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+}
+
+.theme-globe-grid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(85vw, 800px);
+  height: min(85vw, 800px);
+  border-radius: 50%;
+  border: 1px dashed rgba(30, 58, 138, 0.16);
+  box-shadow: 0 0 100px rgba(30, 58, 138, 0.04) inset;
+  pointer-events: none;
+  z-index: -3;
+  opacity: 0.75;
+  transition: transform 0.15s ease-out;
+}
+
+.theme-globe-grid::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  right: 12%;
+  bottom: 12%;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.theme-globe-grid::after {
+  content: '';
+  position: absolute;
+  top: 28%;
+  left: 28%;
+  right: 28%;
+  bottom: 28%;
+  border-radius: 50%;
+  border: 1px dashed rgba(10, 37, 64, 0.12);
+}
+
+.theme-bg-swirl-1 {
+  position: fixed;
+  top: -200px;
+  right: -150px;
+  width: 800px;
+  height: 800px;
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.08) 0%, rgba(37, 99, 235, 0.03) 50%, transparent 80%);
+  border: 2px solid rgba(30, 58, 138, 0.12);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: -3;
+  animation: themeMorph1 25s infinite alternate ease-in-out;
+}
+
+.theme-bg-swirl-2 {
+  position: fixed;
+  bottom: -250px;
+  left: -150px;
+  width: 900px;
+  height: 900px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.12) 0%, rgba(10, 37, 64, 0.04) 60%, transparent 80%);
+  border: 2px solid rgba(148, 163, 184, 0.15);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: -3;
+  animation: themeMorph2 28s infinite alternate ease-in-out;
+}
+
+@keyframes themeMorph1 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate(-50px, 40px) rotate(15deg) scale(1.08); }
+  100% { transform: translate(30px, -30px) rotate(-10deg) scale(0.95); }
+}
+
+@keyframes themeMorph2 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate(60px, -50px) rotate(-18deg) scale(1.1); }
+  100% { transform: translate(-40px, 40px) rotate(12deg) scale(0.92); }
+}
+
+/* 3D Animated VG Emblem Background Canvas Engine */
+#vg3dCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
 #scroll-canvas {
   position: fixed;
   top: 0;
@@ -64,18 +171,7 @@
   height: 100vh;
   z-index: -2;
   pointer-events: none;
-  background: #0A2540;
-}
-
-.canvas-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(10, 37, 64, 0.04) 0%, rgba(10, 37, 64, 0.12) 50%, rgba(10, 37, 64, 0.20) 100%);
-  pointer-events: none;
+  opacity: 0.12;
 }
 
 *, *::before, *::after {
@@ -976,19 +1072,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-dock-btn.whatsapp {
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  background: #25D366;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
 }
 
 .social-dock-btn.gmail {
-  background: linear-gradient(135deg, #EA4335 0%, #C5221F 100%);
+  background: #EA4335;
+  box-shadow: 0 4px 15px rgba(234, 67, 53, 0.4);
 }
 
 .social-dock-btn.linkedin {
-  background: linear-gradient(135deg, #0A66C2 0%, #004182 100%);
+  background: #0A66C2;
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.4);
 }
 
 .social-dock-btn.instagram {
-  background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  box-shadow: 0 4px 15px rgba(214, 36, 159, 0.4);
 }
 
 .social-dock-btn.catalogue {
@@ -1113,6 +1213,40 @@ h1, h2, h3, h4, h5, h6 {
 .nk-breadcrumbs span.active {
   color: var(--navy-primary);
   font-weight: 700;
+}
+
+.nk-modal-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  background: var(--navy-primary);
+  color: #FFFFFF;
+  border: 3px solid var(--navy-bright);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(10, 37, 64, 0.35);
+}
+
+.nk-modal-back-btn svg {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.25s ease;
+}
+
+.nk-modal-back-btn:hover {
+  background: var(--navy-bright);
+  border-color: #2563EB;
+  color: #FFFFFF;
+  transform: scale(1.1) translateX(-4px);
+  box-shadow: 0 10px 28px rgba(30, 58, 138, 0.45);
+}
+
+.nk-modal-back-btn:hover svg {
+  transform: translateX(-4px);
 }
 
 .nk-modal-close {
